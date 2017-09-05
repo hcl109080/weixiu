@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+body,p,h1,h2,h3,h4,h5,h6,ul,ol{margin: 0;padding: 0;font-family:'微软雅黑'}
+li,img{display: block;}
+a{text-decoration: none;}
+.c{clear: both;}
+@font-face
+{
+font-family: myFont;
+	src:
+	url('./fonts/FontAwesome.otf'),
+	url('./fonts/fontawesome-webfont.eot'),
+	url('./fonts/fontawesome-webfont.svg'),
+	url('./fonts/fontawesome-webfont.ttf'),
+	url('./fonts/fontawesome-webfont.woff'),
+	url('./fonts/fontawesome-webfont.woff2');
+}
+
+/*common css*/
+.ul-clear:after{content: "";display: block;clear: both;}
+.m-top-25{margin-top: 25px;}
+
+.box_w_1000{width: 1000px;margin: auto;}
+/*body{background:#f0f0f0;}*/
+header{height: 50px;background: #666;min-width: 1000px;}
+nav.index{background: #f5f5f5;border-bottom: 1px solid #e1e1e2;min-width: 1000px;}
+nav ul{padding: 0 100px;box-sizing: border-box;}
+nav ul>li{float: left;width: 20%;line-height: 44px;text-align: center;font-size: 12px;position: relative;}
+nav ul li a{display: block;color: #666;}
+nav ul ol{position: absolute;width: 100%;background:#f5f5f5;border:1px solid #e1e1e2;border-bottom-left-radius: 6px;border-bottom-right-radius: 6px;display: none;}
+nav ul ol li~li{border-top: 1px solid #e1e1e2;}
+
+div.content h2{font-size: 24px;line-height: 70px;color: #212426;}
+div.content .guide-title{text-align: center;color: #7c7c7c;font-size: 14px;}
+div.content .guide-title h1{font-size: 26px;line-height: 38px;margin: 15px 0;color: #212426;}
+div.content .guide-title ul{display: inline-block;margin-top: 10px;}
+div.content .guide-title li{float: left;padding: 0 10px;}
+div.content .guide-title li:before{font-family: myFont;margin-right: 10px;}
+div.content .guide-title li:first-child:before{content: "\f075";color: #0071ce;}
+div.content .guide-title li:nth-child(2):before{content: "\f005";color: #f9c311;}
+div.content .guide-title li:last-child:before{content: "\f00c";color: #57b524;}
+div.content .guide-title a{color: #666;}
+
+/*div.content .guide-ico{margin-top: 25px;}*/
+div.content .guide-ico>ul>li:first-child{width: 45%;float: left;}
+div.content .guide-ico>ul>li:last-child{display: block;float:right;width: 53%;}
+div.content .guide-ico img{width: 100%;border:1px solid #e6e6e6;border-radius: 4px;}
+div.content .guide-ico ol{display: block;color: #666;}
+div.content .guide-ico ol>li{border:1px solid #e6e6e6;line-height: 48px;background: #fff;border-radius: 4px;position: relative;}
+div.content .guide-ico ol>li .ul-clear{padding: 0 10px;}
+div.content .guide-ico ol>li:after{content: "";display: block;clear: both;}
+div.content .guide-ico ol>li~li{margin-top: 22.3px;}
+div.content .guide-ico ol>li p{width: 50%;display: inline-block;float: left;}
+div.content .guide-ico ol>li p>i{display: inline-block; width: 24px; color:#7c7c7c;margin-right:10px;height: 24px;position: relative;top: 5px;}
+div.content .guide-ico ol>li p:last-child{text-align: right;}
+div.content .guide-ico ol>li p:last-child span{margin: 0 3px;width: 20px;padding:3px 5px;display: inline-block;background: #f9c311;border-radius: 3px;position: relative;top: -3px;}
+div.content .guide-ico ol>li p:last-child span:last-child{background: #e6e6e6;}
+div.content .guide-ico ol>li p:last-child a{border-left:solid 1px #ccc;margin-left: 15px;padding: 5px 5px 5px 14px;cursor: pointer;}
+div.content .guide-ico ol>li p:last-child a:before{content: "\f103";font-family: myFont;font-size: 20px;}
+div.content .guide-ico ol>li .item{position: absolute;z-index: 1;width: 100%;background: #fff;border-bottom: solid 1px #ccc;padding: 0 10px;box-sizing: border-box;border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;display: none;}
+div.content .guide-ico ol ul li{width: 50%;float: left;font-size: 14px;box-sizing: border-box;line-height: 36px;}
+div.content .guide-ico ol ul li a{color: #0071ce;}
+div.content .guide-ico ol ul li:last-child{text-align: right;}
+
+div.content .guide-info{margin-top: 45px;}
+
+div.content .guide-info div p{font-size: 16px;color: #444;line-height: 30px;}
+
+div.content .guide-shop{border:solid 1px #ccc;height: 100px;}
+
+div.content .guide-video li{float: left;width: 50%;line-height: 70px;}
+div.content .guide-video li:last-child{text-align: right;}
+div.content .guide-video video{width: 100%;border-radius: 4px;}
+div.content .guide-steps h2{display: inline-block;}
+div.content h4{font-size: 14px;color: #555;margin: 20px 0;}
+div.content .guide-row~.guide-row{margin-top: 50px;}
+div.content .guide-row .column-title span{margin-left: 20px;color: #212426;font-size: 24px;}
+div.content .guide-row > ul{}
+/*div.content .guide-column > ul > li{border:solid 1px #e6e6e6;}*/
+div.content .guide-row > ul > li:first-child{width: 58%;float: left;border:solid 1px #e6e6e6;}
+div.content .guide-row > ul > li:last-child{width: 40%;float:right;}
+div.content .guide-row .column-img{width: 100%;border-radius: 4px;}
+div.content .guide-row > ul ol li{float: left;border:solid 1px #e6e6e6;width:30%;}
+div.content .guide-row > ul ol li~li{margin-left: 17px;}
+div.content .guide-row img.select{box-shadow:0 4px 10px rgba(0,0,0,.5);opacity:1;}
+div.content .guide-row > ul ul li{margin-top: 15px;font-size: 16px;line-height: 22px;color: #555;}
+div.content .guide-row .dian::before{content: "\f111";font-family: myFont;font-size: 10px;margin-left: 5px;}
+div.content .guide-row .bullet::before{content: "\f05a";font-family: myFont;font-size: 20px;}
+div.content .guide-row .warning::before{content: "\f071";font-family: myFont;font-size: 20px;color: #e83d16;}
+div.content .guide-row .warning + p{color: #e83d16;}
+div.content .guide-row > ul ul li p{display: inline-block;width: 93%;float: right;}
+/*div.content .guide-column > ol{border:solid 1px;}*/
+div.content .guide-row > ol li{box-sizing: border-box;}
+div.content .guide-row > ol li:first-child{width: 80%;padding: 5px 0;border-bottom:solid 1px #e6e6e6;float: left;}
+div.content .guide-row > ol .comment-num{float: right;}
+div.content .guide-row > ol .comment-num{color: #0071ce;font-size: 14px;cursor: pointer;}
+div.content .guide-row > ol .comment-num:before{content: "\f0e5";font-family: myFont;margin-right: 10px;}
+div.content .comment-box{padding: 50px 50px 100px;}
+div.content .bcolor-f7f{background: #f7f7f7;display: none;}
+div.content .bcolor-f7f form{display: none;}
+div.content .comment-box > ul{color: #555;font-size: 14px;margin-bottom: 25px;}
+div.content .comment-box > ul~ul{border-top:solid 1px #e6e6e6;padding-top: 25px;}
+div.content .comment-box > ul>li{display: inline-block;}
+div.content .comment-box > ul>li:first-child:before{content:"\f0e5";font-family: myFont;}
+div.content .comment-box > ul>li:last-child{float: right;width: 97%;}
+div.content .comment-box .reply{border-left:solid 1px #e6e6e6;padding-left: 20px;margin-top: 25px;}
+div.content .comment-box .comment{position: relative;}
+div.content .comment-box .comment span{position: absolute;right: 20px;display: none;cursor: pointer;}
+div.content .comment-box > ul p{margin-bottom: 10px;line-height: 1.42857;}
+div.content .comment-box button{padding:8px 16px 9px;border-radius:4px;border:1px solid #ddd;color:#212426;font-size: 14px;cursor: pointer;}
+div.content .comment-box button:before{content: "\f0e5";font-family: myFont;margin-right: 10px;}
+div.content .comment-box form{padding:0 20px;}
+div.content .comment-box form textarea{box-sizing: border-box;border:1px solid #c1c1c1;border-radius:4px;padding:4px 8px;color:#212426;}
+div.content .comment-box form input{color:#fff;background-color:#0071ce;border-radius:4px;cursor:pointer;display:inline-block;padding:8px 16px 9px;border:1px solid #0071ce;position: absolute;right: 0;}
+div.content .comment-box form li{position: relative;}
+div.content .comment-box form li:last-child{margin-top: 16px;height: 30px;}
+div.content .comment-box form span{color: #666;display: none;font-size: 14px;}
+div.content .comment-box .comment-header{vertical-align: middle;margin-bottom: 35px;}
+div.content .comment-box .comment-header h4{display: inline-block;margin: 0;line-height: 39px;}
+div.content .comment-box .comment-header button{float: right;}
+
+div.content .guide-sum{border:1px solid #b3d4f0;margin-top: 50px;text-align: center;padding: 30px 0;background: #f2f8fd;color: #4d4d4d;border-radius: 4px;}
+div.content .guide-sum li~li{margin-top: 15px;}
+div.content .guide-sum p{font-size: 20px;font-weight: 700;}
+div.content .guide-sum p::before{content: "\f11e";font-family: myFont;color: #80b8e7;margin-right: 15px;font-size: 26px;}
+div.content .guide-sum button{font-weight: 600;color: #fff;background-color:#0071ce;border:1px solid #0071ce;padding:11px 25px 12px;cursor:pointer;border-radius:4px;font-size:14px;}
+div.content .guide-sum button::before{content: "\f00c";font-family: myFont;margin-right: 10px;}
+
+footer{height: 150px;background: #666;}
+</style>
+</head>
+<body>
+	<header>头部</header>
+	<nav class="index">
+		<ul class="box_w_1000 ul-clear">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">导航</a></li>
+			<li>
+				<a href="#">配件及工具商城</a>
+				<ol>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+				</ol>
+			</li>
+			<li><a href="#">导航</a></li>
+			<li><a href="#">导航</a></li>
+		</ul>
+	</nav>
+	<div class="box_w_1000 content">
+		<!-- 标题 -->
+		<div class="guide-title m-top-25">
+			<h1>iPhone 5s 电池更换</h1>
+			<p>撰写者：<a href="#">爱买爱卖</a></p>
+			<ul class="ul-clear">
+				<li>评论：277</li>
+				<li>收藏：429</li>
+				<li>完成：1076</li>
+			</ul>
+		</div>
+		<!-- 产品描述 -->
+		<div class="guide-ico m-top-25">
+			<ul class="ul-clear">
+				<li><img src="./images/iphone5s.jpg" alt=""></li>
+				<li>
+					<ol>
+						<li>
+							<div class="ul-clear">
+								<p>
+									<i>
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										  <circle cx="12" cy="16" r="2"></circle>
+										  <line x1="12" y1="9" x2="12" y2="14"></line>
+										  <path d="M6,19H2V15a10,10,0,0,1,20,0v4H18"></path>
+										</svg>
+									</i>
+									难度
+								</p>
+								<p>
+									<span></span>
+									<span></span>
+									<span></span>
+									中
+								</p>
+							</div>
+						</li>
+						<li>
+							<div class="ul-clear">
+								<p>
+									<i>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									    <line x1="8" y1="6" x2="21" y2="6"></line>
+									    <line x1="8" y1="12" x2="21" y2="12"></line>
+									    <line x1="8" y1="18" x2="21" y2="18"></line>
+									    <line x1="3" y1="6" x2="3" y2="6"></line>
+									    <line x1="3" y1="12" x2="3" y2="12"></line>
+									    <line x1="3" y1="18" x2="3" y2="18"></line>
+									</svg>
+									</i>
+									步骤
+								</p>
+								<p>29步</p>
+							</div>
+						</li>
+						<li>
+							<div class="ul-clear">
+								<p>
+									<i>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									  <circle cx="12" cy="12" r="10"></circle>
+									  <polyline points="12 6 12 12 15 15"></polyline>
+									</svg>
+									</i>
+									所需时间
+								</p>
+								<p>20–40 分钟</p>
+							</div>
+						</li>
+						<li>
+							<div class="ul-clear">
+								<p>
+									<i>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									  <path d="M19,21l-7-5L5,21V5A2,2,0,0,1,7,3H17a2,2,0,0,1,2,2Z"></path>
+									</svg>
+									</i>
+									节
+								</p>
+								<p>2<a></a></p>
+							</div>
+							<div class="item">
+								<ul>
+									<li><a href="#">前面板组件替换 </a></li>
+									<li>22个步骤</li>
+								</ul>
+								<ul>
+									<li><a href="#">电池 </a></li>
+									<li>7个步骤</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="ul-clear">
+								<p>
+									<i>
+									<svg viewBox="0 0 24 24" fill="none" stroke-linejoin="round" stroke-width="2" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10">
+									  <path d="M13.71,3.86,22.18,18a2,2,0,0,1-1.71,3H3.53a2,2,0,0,1-1.71-3L10.29,3.86A2,2,0,0,1,13.71,3.86Z"></path>
+									  <line x1="12" y1="9" x2="12" y2="13"></line>
+									  <line x1="12" y1="17" x2="12" y2="17"></line>
+									</svg>
+									</i>
+									标志
+								</p>
+								<p>1<a></a></p>
+							</div>
+							<div class="item">
+								<ul>
+									<li><a href="#">前面板组件替换 </a></li>
+									<li>22个步骤</li>
+								</ul>
+								<ul>
+									<li><a href="#">电池 </a></li>
+									<li>7个步骤</li>
+								</ul>
+							</div>
+						</li>
+					</ol>
+				</li>
+			</ul>
+		</div>
+		<!-- 简介 -->
+		<div class="guide-info">
+			<h2>简介</h2>
+			<div>
+				<p>参考这篇指南让你的iPhone 5s重获新生。</p>
+				<p><strong>在你开始之前，让iPhone的蓄电量掉到25%以下。</strong> 这会将操作过程中意外漏电的几率降到最小。</p>
+				<p>这篇指南指导你移除前面板组件；有可能会破坏掉屏幕排线。如果你像（老司机一样）很轻松就能支撑屏幕时拔出电池，你可以跳过移除屏幕步骤，直接前往替换电池步骤。</p>
+				<p>为了让新电池性能达到最佳，请在安装后校正你的新电池：将电池电量消耗到10%以下，然后不中断地充电到100%。</p>
+			</div>
+		</div>
+		<!-- 工具购买 -->
+		<div class="guide-shop m-top-25">
+			工具购买部分
+		</div>
+		<!-- 视频 -->
+		<div class="guide-video m-top-25">
+			<ul class="ul-clear">
+				<li><h2>视频概述</h2></li>
+				<li>1</li>
+			</ul>
+			<div class="video"></div>
+			<video src="http://www.iqiyi.com/common/flashplayer/20170828/1611af8f6df.swf" controls="controls">
+				your browser does not support the video tag
+			</video>
+		</div>
+		<!-- 操作步骤 -->
+		<div class="guide-steps m-top-25">
+			<div class="guide-row">
+				<a href="#" class="column-title"><h2>步骤 1</h2><span>前面板组件替换</span></a>
+				<ul class="ul-clear">
+					<li><img src="./images/column-1-1.jpg" alt="Image 1/3: 用透明胶带贴在iPhone手机显示屏上，尽可能的覆盖整个屏幕。" class="column-img"></li>
+					<li>
+						<ol class="ul-clear">
+							<li><img src="./images/column-1-1.jpg" alt="" class="column-img select"></li>
+							<li><img src="./images/column-1-2.jpg" alt="" class="column-img"></li>
+							<li><img src="./images/column-1-3.jpg" alt="" class="column-img"></li>
+						</ol>
+						<ul>
+							<li class="ul-clear"><span class="dian"></span><p>如果你的手机显示屏碎了，请避免屏幕碎裂更多，并且通过使用透明胶粘贴屏幕来避免屏幕的主体损坏。</p></li>
+							<li class="ul-clear"><span class="dian"></span><p>用透明胶带贴在iPhone手机显示屏上，尽可能的覆盖整个屏幕。</p></li>
+							<li class="ul-clear"><span class="bullet"></span><p>这会让屏幕碎片得到控制，并且在撬起屏幕时保持屏幕结构的完整性。</p></li>
+							<li class="ul-clear"><span class="warning"></span><p>在维修过程中，佩戴防护镜来保护眼部不会受到碎玻璃的伤害。</p></li>
+						</ul>
+					</li>
+				</ul>
+				<ol class="ul-clear m-top-25">
+					<li></li>
+					<li class="comment-num">6条评论</li>
+				</ol>
+				<div class="comment-box m-top-25 bcolor-f7f">
+					<ul class="ul-clear">
+						<li></li>
+						<li>
+							<div class="comment">
+								<p>
+									This was the most stressful thing I have ever done. I can't get the chips to pop in the top right corner, still coming up with white lines at top of screen even after re-powering the battery. Very poor experience, will let apple or a professional handle this rather than a how to. &&^& this.
+								</p>
+								<a href="#">steven krieger</a> - <time>2015年11月12日</time><span>回复</span>
+							</div>
+						</li>
+					</ul>
+					<ul class="ul-clear">
+						<li></li>
+						<li>
+							<div class="comment">
+								<p>
+									This is a Step 4 comment. I ordered the iSclack tool to help with my 5s battery replacement. After 30 minutes of trying to open the iPhone, I gave up and will try this later when I have a lot more time to spend on this. Before you ask, yes I did remove the two screws in Step 2. I must have a very tight fitting phone! Maybe next time I'll try a drop of oil on both suction cups to help with the adhesion. LOL, did not think I'd have trouble opening the case!
+								</p>
+								<a href="#">steven krieger</a> - <time>2015年11月12日</time> <span>回复</span>
+							</div>
+							<div class="reply">
+								<p>
+									An update. After months of living with my dead battery (iSclack would not work for me), I decided to use the provided suction cup, and surprise - it worked! LOL, so much for the iSclack tool! In any case, I followed the instructions and though it was a bit difficult (too small parts, too fat fingers, aging eyes), I was able to replace the battery. The battery removal was a bear, but with patience (and the use of an expired credit card as my lever), it did come out. Replacement of the adhesive strips was a puzzle - I eventually installed it "backwards" (removal hole in the tab on the left vs right) but this should not affect anything. Phone is charging now and preliminary testing of the home button/digitizer seem to be working. Once fully charged I'll do a full test on the phone to ensure I put things together correctly, but THANK YOU iFixIt for these instructions!
+								</p>
+								<a href="#">steven krieger</a> - <time>2015年11月12日</time>
+							</div>
+							<div class="reply">
+								<p>
+									I faced the same issue. My 5S wouldn't open with the iSclack. Had to use the suction cup instead. Even then, I wrestled with it for a whole 30 minutes.. Apparently my 5S is one sticky beast.
+								</p>
+								<a href="#">steven krieger</a> - <time>2015年11月12日</time>
+							</div>
+						</li>
+					</ul>
+					<button class="add-btn">添加一条评论</button>
+					<form action="">
+						<ul>
+							<li><h4>添加一条评论</h4></li>
+							<li><textarea name="comment_content" rows="6" cols="20" style="overflow: auto;width:100%;max-width: 100%;"  maxlength="1024" autocomplete="off"></textarea></li>
+							<li><span>1024</span><input type="button" value="发表评论"></li>
+						</ul>
+					</form>
+				</div>				
+			</div>
+
+			<!-- ---- -->
+
+			<div class="guide-row">
+				<a href="#" class="column-title"><h2>步骤 2</h2><span></span></a>
+				<ul class="ul-clear">
+					<li><img src="./images/column-2-1.jpg" alt="Image 1/3: 用透明胶带贴在iPhone手机显示屏上，尽可能的覆盖整个屏幕。" class="column-img"></li>
+					<li>
+						<ul>
+						<li class="ul-clear"><span class="warning"></span><p>在开始之前，确保 iPhone 的电量低于 25% 。满电的锂电池如果不小心被戳破，可能会着火或爆炸。</p></li>
+							<li class="ul-clear"><span class="dian"></span><p>开始拆卸之前请关机。</p></li>
+							<li class="ul-clear"><span class="dian"></span><p>拧开Lightning接口两旁的两颗3.9 mm五角螺丝。</p></li>
+							
+						</ul>
+					</li>
+				</ul>
+				<ol class="ul-clear m-top-25">
+					<li></li>
+					<li class="comment-num">6条评论</li>
+				</ol>
+				<div class="comment-box m-top-25 bcolor-f7f">
+					<ul class="ul-clear">
+						<li></li>
+						<li>
+							<div class="comment">
+								<p>
+									This was the most stressful thing I have ever done. I can't get the chips to pop in the top right corner, still coming up with white lines at top of screen even after re-powering the battery. Very poor experience, will let apple or a professional handle this rather than a how to. &&^& this.
+								</p>
+								<a href="#">steven krieger</a> - <time>2015年11月12日</time> <span>回复</span>
+							</div>
+						</li>
+					</ul>
+					<ul class="ul-clear">
+						<li></li>
+						<li>
+							<div class="comment">
+								<p>
+									This is a Step 4 comment. I ordered the iSclack tool to help with my 5s battery replacement. After 30 minutes of trying to open the iPhone, I gave up and will try this later when I have a lot more time to spend on this. Before you ask, yes I did remove the two screws in Step 2. I must have a very tight fitting phone! Maybe next time I'll try a drop of oil on both suction cups to help with the adhesion. LOL, did not think I'd have trouble opening the case!
+								</p>
+								<a href="#">steven krieger</a> - <time>2015年11月12日</time> <span>回复</span>
+							</div>
+							<div class="reply">
+								<p>
+									An update. After months of living with my dead battery (iSclack would not work for me), I decided to use the provided suction cup, and surprise - it worked! LOL, so much for the iSclack tool! In any case, I followed the instructions and though it was a bit difficult (too small parts, too fat fingers, aging eyes), I was able to replace the battery. The battery removal was a bear, but with patience (and the use of an expired credit card as my lever), it did come out. Replacement of the adhesive strips was a puzzle - I eventually installed it "backwards" (removal hole in the tab on the left vs right) but this should not affect anything. Phone is charging now and preliminary testing of the home button/digitizer seem to be working. Once fully charged I'll do a full test on the phone to ensure I put things together correctly, but THANK YOU iFixIt for these instructions!
+								</p>
+								<a href="#">steven krieger</a> - <time>2015年11月12日</time>
+							</div>
+							<div class="reply">
+								<p>
+									I faced the same issue. My 5S wouldn't open with the iSclack. Had to use the suction cup instead. Even then, I wrestled with it for a whole 30 minutes.. Apparently my 5S is one sticky beast.
+								</p>
+								<a href="#">steven krieger</a> - <time>2015年11月12日</time>
+							</div>
+						</li>
+					</ul>
+					<button class="add-btn">添加一条评论</button>
+					<form action="">
+						<ul>
+							<li><h4>添加一条评论</h4></li>
+							<li><textarea name="comment_content" rows="6" cols="20" style="overflow: auto;width:100%;max-width: 100%;"  maxlength="1024" autocomplete="off"></textarea></li>
+							<li><span>1024</span><input type="button" value="发表评论"></li>
+						</ul>
+					</form>
+				</div>				
+			</div>
+		</div>
+		<!-- 总结 -->
+		<div class="guide-sum">
+			<ul>
+				<li><p>总结</p></li>
+				<li>操作完成后重新组装你的设备，请以逆序参考本手册操作。</li>
+				<li><button>给作者 + 30 分!</button></li>
+				<li>超过832人根据本指南完成修复工作。</li>
+			</ul>
+		</div>
+		<!-- 评论 -->
+		<div class="comment-box m-top-25">
+			<div class="comment-header ul-clear">
+				<h4>104条评论 </h4>
+				<button class="add-btn">添加一条评论</button>
+			</div>
+			<ul class="ul-clear">
+				<li></li>
+				<li>
+					<div class="comment">
+						<p>
+							This was the most stressful thing I have ever done. I can't get the chips to pop in the top right corner, still coming up with white lines at top of screen even after re-powering the battery. Very poor experience, will let apple or a professional handle this rather than a how to. &&^& this.
+						</p>
+						<a href="#">steven krieger</a> - <time>2015年11月12日</time> <span>回复</span>
+					</div>
+				</li>
+			</ul>
+			<ul class="ul-clear">
+				<li></li>
+				<li>
+					<div class="comment">
+						<p>
+							This is a Step 4 comment. I ordered the iSclack tool to help with my 5s battery replacement. After 30 minutes of trying to open the iPhone, I gave up and will try this later when I have a lot more time to spend on this. Before you ask, yes I did remove the two screws in Step 2. I must have a very tight fitting phone! Maybe next time I'll try a drop of oil on both suction cups to help with the adhesion. LOL, did not think I'd have trouble opening the case!
+						</p>
+						<a href="#">steven krieger</a> - <time>2015年11月12日</time> <span>回复</span>
+					</div>
+					<div class="reply">
+						<p>
+							An update. After months of living with my dead battery (iSclack would not work for me), I decided to use the provided suction cup, and surprise - it worked! LOL, so much for the iSclack tool! In any case, I followed the instructions and though it was a bit difficult (too small parts, too fat fingers, aging eyes), I was able to replace the battery. The battery removal was a bear, but with patience (and the use of an expired credit card as my lever), it did come out. Replacement of the adhesive strips was a puzzle - I eventually installed it "backwards" (removal hole in the tab on the left vs right) but this should not affect anything. Phone is charging now and preliminary testing of the home button/digitizer seem to be working. Once fully charged I'll do a full test on the phone to ensure I put things together correctly, but THANK YOU iFixIt for these instructions!
+						</p>
+						<a href="#">steven krieger</a> - <time>2015年11月12日</time>
+					</div>
+					<div class="reply">
+						<p>
+							I faced the same issue. My 5S wouldn't open with the iSclack. Had to use the suction cup instead. Even then, I wrestled with it for a whole 30 minutes.. Apparently my 5S is one sticky beast.
+						</p>
+						<a href="#">steven krieger</a> - <time>2015年11月12日</time>
+					</div>
+				</li>
+			</ul>
+			<!-- <button>添加一条评论</button> -->
+			<form action="">
+				<ul>
+					<li><h4>添加评论</h4></li>
+					<li><textarea name="comment_content" rows="6" cols="20" style="overflow: auto;width:100%;max-width: 100%;" maxlength="1024" autocomplete="off"></textarea></li>
+					<li><span>1024</span><input type="button" value="发表评论"></li>
+				</ul>
+			</form>
+		</div>	
+	</div>
+	<footer class="m-top-25">
+		页脚
+	</footer>
+</body>
+<script src="//cdn.bootcss.com/jquery/1.4.1/jquery.min.js"></script>
+<script>
+//评论点击 切换 显示隐藏
+$('.comment-num').toggle(
+	function(){
+		$(this).parent().next().show();
+	},
+	function(){
+		$(this).parent().next().hide();	
+	}
+);
+//添加评论 按钮 点击
+$('.add-btn').click(function(){
+	$(this).next('form').show();
+	$(this).parents('.comment-box').find('textarea').focus();
+});
+//文本框 获取焦点
+$('textarea').focus(function(){
+	$(this).parents('form').find('span').show();
+});
+//文本框 失去焦点
+$('textarea').blur(function(){
+	$(this).parents('form').find('span').hide();
+});
+//回复 评论 ，移入 移除
+$('.comment').hover(
+	function(){
+		$(this).children('span').show();
+	},
+	function(){
+		$(this).children('span').hide();
+	}
+);
+//回复 点击
+$('.comment span').click(function(){
+	var name= '回复到 ' + $(this).parent().children('a').html();
+	$(this).parents('.comment-box').find('form').show().find('h4').html(name);
+	$(this).parents('.comment-box').find('textarea').focus();
+});
+
+$('textarea').keyup(function(){
+	var num = 1024 - $(this).val().length;
+	$(this).parents('form').find('span').html(num);
+});
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- $html = file_get_contents('http://www.runoob.com');
+ 
+$dom = new DOMDocument();
+@$dom->loadHTML($html);
+ 
+// grab all the on the page
+$xpath = new DOMXPath($dom);
+$hrefs = $xpath->evaluate("/html/body//a");
+ 
+for ($i = 0; $i < $hrefs->length; $i++) {
+       $href = $hrefs->item($i);
+       $url = $href->getAttribute('href');
+       echo $url.'<br />';
+} -->

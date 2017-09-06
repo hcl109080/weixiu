@@ -4,8 +4,86 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="./css/common.css">
 	<title>Document</title>
+<style>
+body{background: #eee;}
+/*.comment aside{border:solid 1px ;}*/
+.comment{margin-top: 25px;border:solid 1px;padding: 15px;box-sizing: border-box;background: #fff;}
+.comment .laside{float: left;width: 70%;}
+.comment .raside{float: right;width: 28%;}
+
+.comment .info-title{border-bottom:solid 1px #aaa;}
+.comment .info-title li{float: left;padding:7px 17px 8px;margin: 0 3px;background: #fafafa;position: relative;color: #ccc;font-size: 14px;border:1px solid #ddd;border-bottom:0;cursor: pointer;border-radius:2px 2px 0 0;}
+.comment .info-title li.select{border:solid 1px #aaa;border-bottom: solid 1px #fff;background:#fff;font-weight: bold;color: #000;top: 1px;}
+</style>
 </head>
 <body>
-	
+	<header>头部</header>
+	<nav class="index">
+		<ul class="box_w_1000 ul-clear">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">导航</a></li>
+			<li>
+				<a href="#">配件及工具商城</a>
+				<ol>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+				</ol>
+			</li>
+			<li><a href="#">导航</a></li>
+			<li><a href="#">导航</a></li>
+		</ul>
+	</nav>
+	<div class="box_w_1000 ul-clear comment">
+		<aside class="laside">
+			<ul class="info-title ul-clear">
+				<li class="select">简介</li>
+				<li>详细信息</li>
+				<li>说明（指南）步骤</li>
+			</ul>
+			<ol>
+				<li>
+					<p>这是什么类型的指南？</p>
+					<p><input type="text"></p>
+				</li>
+				<li>
+					<p>设备</p>
+					<p><input type="text"></p>
+				</li>
+				<li>
+					<p>你要替换的哪一部分？ </p>
+					<p><input type="text"></p>
+				</li>
+				<li>
+					<p>标题 </p>
+					<p><input type="text"></p>
+				</li>
+				<li>
+					<p>搜索摘要  </p>
+					<p><input type="text"></p>
+				</li>
+			</ol>
+			<div>显示更多</div>
+			<div>添加图片</div>
+			<ol>
+				<li>
+					<p>简介</p>
+					<ul>
+						<li>小图标</li>
+					</ul>
+					<p><textarea name="" id="" cols="30" rows="10"></textarea></p>
+				</li>
+				<li>
+					<p>标志</p>
+					<p><input type="text"></p>
+				</li>
+			</ol>
+		</aside>
+		<aside class="raside">2</aside>
+	</div>
+	<footer class="m-top-25">
+		页脚
+	</footer>
 </body>
 </html>

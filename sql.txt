@@ -1,0 +1,100 @@
+create table `user`(
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`name` char(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '用户名',
+	`pwd` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '密码',
+	`email`	char(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '邮箱',
+	PRIMARY KEY (`id`)
+)ENGINE=MyISAM
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='用户表'
+CHECKSUM=0
+DELAY_KEY_WRITE=0;
+
+create table `goods`(
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`title` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '标题',
+	`difficulty` tinyint(1) NOT NULL DEFAULT 0 COMMENT '维修难度',
+	`step` SMALLINT NOT NULL DEFAULT 0 COMMENT '维修步骤',
+	`needTime` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '所需时间',
+	`info` VARCHAR(3000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '简介',
+	`video` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '视频',
+	PRIMARY KEY (`id`)
+)ENGINE=MyISAM
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='维修表'
+CHECKSUM=0
+DELAY_KEY_WRITE=0;
+
+
+create table `guide`(
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`parentId` int UNSIGNED NOT NULL DEFAULT 0 COMMENT '父ID',
+	`title` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '标题',
+	`video` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '视频',
+	PRIMARY KEY (`id`)
+)ENGINE=MyISAM
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='步骤表'
+CHECKSUM=0
+DELAY_KEY_WRITE=0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE `blog_articleTab` (
+	`Id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
+	`Author` char(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '作者',
+	`Title` char(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '标题',
+	`Info` char(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '简介',
+	`tags` char(32)	CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '标签',
+	`keywords` char(32)	CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '关键字',
+	`Content` text CHARACTER SET utf8 COLLATE utf8_general_ci not NULL COMMENT '文章内容',
+	`img` char(28) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '文章标题图片',
+	`ArticleType` char(6)	CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '分类',
+	`Create_DateTime` char(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '发布时间',
+	`Update_DateTime` char(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '修改时间',
+	`Is_Discuss` tinyint(1) NULL DEFAULT 0 COMMENT '是否被评论',
+	`Is_Show` tinyint(1) NULL DEFAULT 0 COMMENT '是否对外展示',
+	PRIMARY KEY (`Id`)
+) ENGINE=MyISAM
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='文章信息表'
+CHECKSUM=0
+DELAY_KEY_WRITE=0;
+
+
+CREATE TABLE `blog_fl` (
+	`Id` tinyint UNSIGNED NOT NULL AUTO_INCREMENT,
+	`parent_Id` tinyint UNSIGNED not NULL DEFAULT 0 COMMENT '父id',
+	`level` tinyint UNSIGNED not NULL DEFAULT 0 COMMENT '级别',
+	`Content` char(8) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '分类',
+	`Is_Delete` tinyint(1) NULL DEFAULT 0 COMMENT '是否删除',
+	PRIMARY KEY (`Id`)
+) ENGINE=MyISAM
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='分类表'
+CHECKSUM=0
+DELAY_KEY_WRITE=0;
+

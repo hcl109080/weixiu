@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./css/common.css">
+	<title>编辑</title>
+<style>
+body{background: #eee;}
+.up:after{content: "\f106";}
+.down:after{content: "\f107";}
+.comment{margin: 25px auto;box-shadow:0 0 6px #ccc;padding: 25px;box-sizing: border-box;background: #fff;}
+.comment .laside{float: left;width: 65%;}
+.comment .raside{float: right;width: 33%;}
+
+.comment .info-title{border-bottom:solid 1px #aaa;}
+.comment .info-title li{float: left;padding:7px 17px 8px;margin: 0 3px;background: #fafafa;position: relative;color: #ccc;font-size: 14px;border:1px solid #ddd;border-bottom:0;cursor: pointer;border-radius:2px 2px 0 0;}
+.comment .info-title li.select{border:solid 1px #aaa;border-bottom: solid 1px #fff;background:#fff;font-weight: bold;color: #000;top: 1px;}
+
+.comment .edit-box{margin-top: 10px;}
+.comment .edit-box form{padding: 15px;box-sizing: border-box;background: #eee;border-radius: 4px;}
+.comment .edit-box form h5{display: inline-block;}
+.comment .edit-box form >ul>li{position: relative;}
+.comment .edit-box form >ul>li~li{margin-top: 15px;}
+.comment .edit-box form .toggle div{display: inline-block;}
+.comment .edit-box form .switch-box{width: 32px;height: 18px;background: #a7a7a7;border-radius: 9px;position: relative;top: 2px;}
+.comment .edit-box form .switch{width: 14px;height: 14px;background: #fff;box-shadow:0 1px 2px rgba(0,0,0,.5);border-radius:7px;position: absolute;top: 2px;cursor:pointer;}
+/*.comment .edit-box form .slider-box{margin-top: 10px;}*/
+.comment .edit-box form .slider-t{width: 200px;height: 6px;background:#a7a7a7;display: inline-block;border-radius: 3px;box-shadow:inset 0 1px 2px #888;position: relative;top: -2px;}
+.comment .edit-box form .slider-box p{display: inline-block;}
+.comment .edit-box form .slider-knob{width: 14px;height: 14px;background: #fff;border-radius: 10px;box-shadow:0 1px 3px rgba(0,0,0,.5);position: absolute;top: -5px;cursor: pointer;}
+.comment .edit-box form .disabled{left: 17px;display: none;background: red;}
+.comment .edit-box form select{width: 240px;height: 23px;}
+.comment .edit-box form .text-box{margin-top: 10px;position: relative;}
+.comment .edit-box form .text{border:1px solid #c1c1c1;box-shadow:inset 0 1px 2px #eee;border-radius:4px;width: 364px;box-sizing: border-box;padding: 4px 8px;font-size: 14px;color: #212426;max-width: 364px;max-height: 232px;}
+.comment .edit-box form .none{font-size: 14px;line-height: 25px;position: absolute;top: 0;left: 370px;display: none;}
+.comment .edit-box form .none p{color: #555;}
+
+
+
+
+
+.comment .edit-box .btn-box{margin: 20px 0;position: relative;height: 32px;}
+.comment .edit-box button{color: #fff;background: #0071ce;padding:6px 12px 7px;border:#0071ce;border-radius: 4px;position: absolute;right: 0;cursor:pointer;}
+.comment .edit-box .pagination{background: #eee;line-height: 35px;text-align: center;font-size: 14px;color: #555;border-radius: 4px;margin-bottom: 10px;}
+.comment .edit-box .disclaimer{color: #888;font-size: 14px;font-style:italic;}
+.comment .edit-box .disclaimer a{color: #668c9d;}
+
+
+.comment .raside > ul > li{background: #eee;border-radius: 4px;box-sizing: border-box;padding: 5px;}
+.comment .raside > ul > li~li{margin-top: 15px;}
+.comment .raside > ul > li:first-child{height: 225px;}
+.comment .raside > ul > li:first-child > div{border:dashed 2px rgb(221, 221, 221);height: 215px;box-sizing: border-box;background: url('./images/camera-large-add-2.png') no-repeat 50% 50%;}
+.comment .raside > ul > li:first-child > div:hover{background-color:#eff;}
+.comment .raside > ul > li:first-child input{height: 215px;width: 100%;opacity: 0;}
+.comment .raside > ul > li:nth-child(2) li{width: 56px;height: 42px;float: left;margin: 5px;}
+.comment .raside > ul > li:nth-child(2) li a{display: block;}
+.comment .raside > ul > li:nth-child(2) li.thumb{background: url('./images/NoImage_56x42.jpg');}
+.comment .raside > ul > li:nth-child(2) li:last-child a{line-height: 40px;box-sizing: border-box;text-align: center;background: #fece71;}
+.comment .raside > ul > li:nth-child(2) li:last-child a:before{content: "\f067";font-family: myFont;font-size: 23px;font-weight: 700px;color: #fff;}
+</style>
+</head>
+<body>
+	<header>头部</header>
+	<nav class="index">
+		<ul class="box_w_1000 ul-clear">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">导航</a></li>
+			<li>
+				<a href="#">配件及工具商城</a>
+				<ol>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+				</ol>
+			</li>
+			<li><a href="#">导航</a></li>
+			<li><a href="#">导航</a></li>
+		</ul>
+	</nav>
+	<div class="box_w_1000 ul-clear comment">
+		<aside class="laside">
+			<ul class="info-title ul-clear">
+				<li>简介</li>
+				<li class="select">详细信息</li>
+				<li>说明（指南）步骤</li>
+			</ul>
+			<div class="edit-box ul-clear">
+				<form action="">
+					<ul>
+						<li>
+							<h5>估计时间</h5>
+							<div class="toggle">
+								<h5>范围</h5>
+								<div class="switch-box"><div class="switch"></div></div>
+								<h5>否 </h5>
+							</div>
+							<div class="slider-box">
+								<div class="slider-t">
+									<span class="slider-range"></span>
+									<div class="slider-knob"></div>
+									<div class="slider-knob disabled"></div>
+								</div>
+								<p>没有估计</p>
+							</div>
+						</li>
+						<li>
+							<h5>难度估计</h5>
+							<select name="" class="focus">
+								<option value="">低</option>
+								<option value="">中</option>
+								<option value="">高</option>
+							</select>
+							<div class="none">
+								<p>为这整个任务选择一个难度级别（包括任何前提指导）。难度排名反映了修理所需经验、身体灵活性和风险。</p>
+								<h5>低</h5>
+								<p>不需要开启设备。</p>
+								<h5>中</h5>
+								<p>需要一些拆卸。这是一个大多数人没有说明就不能执行的任务。</p>
+								<h5>高</h5>
+								<p>这项任务被认为是相当具有挑战性的，可能需要执行专门的任务，如微焊接，并有可能会损坏设备的风险。如果你能做到这一点，人们偶尔会叫你维修大师了。</p>
+							</div>
+						</li>
+						<li>
+							<h5>前提条件指南</h5>
+							<div class="text-box">
+								<input type="text" placeholder="开始输入指南标题" class="text focus">
+								<div class="none">
+								<p>如果你的指南选择了一个现有的指南，请将现有的指南作为一个前提条件，以避免写额外的步骤。前提指南将在本指南之前显示。确保前提指南以正确的顺序出现。你可以通过拖动指南名字左边的图标来改变前提顺序。</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<p><h5>结论 </h5></p>
+							<div class="text-box">
+								<textarea name="" cols="30" rows="5" class="text">当重新组装你的设备时，请按照说明的相反顺序进行操作。</textarea>
+							</div>
+						</li>
+					</ul>
+				</form>
+				<div class="btn-box"><button>保存</button></div>
+				<div class="pagination">创建简介</div>
+				<p class="disclaimer">在开源<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" class="muted" target="_blank">创作共享</a>许可协议下，你的投稿已被<a href="/Info/Licensing" class="muted" target="_blank">许可</a>。</p>
+			</div>
+		</aside>
+		<aside class="raside">
+			<ul>
+				<li>
+					<div><input type="file" name="video"></div>
+				</li>
+				<li>
+					<h3>步骤</h3>
+					<ol class="ul-clear">
+						<li class="thumb"><a href="#"></a></li>
+						<li class="thumb"><a href="#"></a></li>
+						<li class="thumb"><a href="#"></a></li>
+						<li class="thumb"><a href="#"></a></li>
+						<li><a href="#" alt="添加步骤" title="添加步骤"></a></li>
+					</ol>
+				</li>
+				<li>
+					<h3>编辑权限</h3>
+				</li>
+				<li>
+					<h3>隐私</h3>
+				</li>
+				<li>
+					<h3>添加团队</h3>
+				</li>
+				<li>
+					<h3>添加用户</h3>
+				</li>
+				<li>
+					<h3>标签 </h3>
+				</li>
+			</ul>
+		</aside>
+	</div>
+</body>
+<script src="//cdn.bootcss.com/jquery/1.4.1/jquery.min.js"></script>
+<script>
+$('.switch').toggle(
+	function(){
+		$(this).css('right',0);
+		$('.switch-box').css('background','red');
+		$('.disabled').show();
+		var btn1 = parseInt($('.slider-knob')[0].style.left);
+		if($('.disabled').data('status') == 1){
+			$('.disabled').css('left',btn1+20+'px');
+			if((186-btn1)<=17){
+				$('.disabled').css('left',btn1+'px');
+				$('.slider-knob').eq(0).css('left',btn1-20+'px');
+			}
+			$('.disabled').data('status',0);
+		}
+	},
+	function(){
+		$(this).css('right','');
+		$('.switch-box').css('background','');
+		$('.disabled').hide();
+	}
+);
+/*......................*/ 
+var dragFlag = false;
+var x,y;
+$('.slider-knob').mousedown(function(e){
+	e = e || window.event;
+	x = e.clientX - $(this).position().left;
+	if($(this).index()==1){
+		dragFlag = 1;
+	}else{
+		dragFlag = 2;
+	}
+});
+document.onmousemove = function (e) {
+	e = e || window.event;
+	if (dragFlag==1) {
+		var btn2 = parseInt($('.slider-knob').eq(1).css('left'));
+		var btn2Disabled = $('.slider-knob').eq(1).css('display');
+		$('.slider-knob').eq(0).css('left',e.clientX - x + "px");
+		if(btn2Disabled == 'none'){
+			$('.disabled').data('status',1);
+		}
+		if((e.clientX - x)>=186){
+			$('.slider-knob').eq(0).css('left','186px');
+		}
+		if(btn2Disabled == 'block'){
+			if((e.clientX - x)>=btn2-14){
+				$('.slider-knob').eq(0).css('left',btn2-15+'px');
+			}
+		}
+		if((e.clientX - x<=0)){
+			$('.slider-knob').eq(0).css('left','0');
+		}
+	}else if(dragFlag ==2){
+		var btn1 = parseInt($('.slider-knob').eq(0).css('left'));
+		$('.slider-knob').eq(1).css('left',e.clientX - x + "px");
+		if((e.clientX - x)<=btn1 + 14){
+			$('.slider-knob').eq(1).css('left',btn1+15+'px');
+		}
+		if((e.clientX - x)>=186){
+			$('.slider-knob').eq(1).css('left','186px');
+		}
+	}
+}
+document.onmouseup = function (e) {
+    dragFlag = false;
+};
+/*......................*/ 
+
+
+
+
+
+$('.focus').focus(function(){
+	$(this).parents('li').find('.none').show();
+	if($(this).index() === 1){
+		$('form').css('height','487px');
+	}
+});
+$('.focus').blur(function(){
+	$(this).parents('li').find('.none').hide();
+	$('form').css('height','');
+})
+</script>
+</html>

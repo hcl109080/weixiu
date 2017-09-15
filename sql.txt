@@ -1,3 +1,5 @@
+CREATE DATABASE  `wxguide` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 create table `user`(
 	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
 	`name` char(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '用户名',
@@ -12,11 +14,16 @@ DELAY_KEY_WRITE=0;
 
 create table `goods`(
 	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`type` char(4) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '指南类型',
+	`equipment` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '设备',
+	`block` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '替换的地方',
 	`title` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '标题',
+	`abstract` char(156) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '搜索摘要 ',
 	`difficulty` tinyint(1) NOT NULL DEFAULT 0 COMMENT '维修难度',
 	`step` SMALLINT NOT NULL DEFAULT 0 COMMENT '维修步骤',
 	`needTime` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '所需时间',
 	`info` VARCHAR(3000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '简介',
+	`sign` char(156) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '标志 ',
 	`video` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '视频',
 	PRIMARY KEY (`id`)
 )ENGINE=MyISAM
@@ -30,13 +37,36 @@ create table `guide`(
 	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
 	`parentId` int UNSIGNED NOT NULL DEFAULT 0 COMMENT '父ID',
 	`title` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '标题',
-	`video` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '视频',
+	`video` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '视频地址',
 	PRIMARY KEY (`id`)
 )ENGINE=MyISAM
 DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 COMMENT='步骤表'
 CHECKSUM=0
 DELAY_KEY_WRITE=0;
+
+create table `guideImages`(
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`parentId` int UNSIGNED NOT NULL DEFAULT 0 COMMENT '父ID',
+	`img` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '图片地址',
+	PRIMARY KEY (`id`)
+)ENGINE=MyISAM
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='步骤图片表'
+CHECKSUM=0
+DELAY_KEY_WRITE=0;
+
+create table `guideInfo`(
+	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+	`parentId` int UNSIGNED NOT NULL DEFAULT 0 COMMENT '父ID',
+	`info` char(125) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '操作介绍',
+	PRIMARY KEY (`id`)
+)ENGINE=MyISAM
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='步骤操作简介表'
+CHECKSUM=0
+DELAY_KEY_WRITE=0;
+
 
 
 

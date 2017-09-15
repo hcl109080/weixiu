@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./css/common.css">
+	<title>编辑</title>
+<style>
+body{background: #eee;}
+.up:after{content: "\f106";}
+.down:after{content: "\f107";}
+.comment{margin: 25px auto;box-shadow:0 0 6px #ccc;padding: 25px;box-sizing: border-box;background: #fff;}
+.comment .laside{float: left;width: 65%;}
+.comment .raside{float: right;width: 33%;}
+
+.comment .info-title{border-bottom:solid 1px #aaa;}
+.comment .info-title li{float: left;padding:7px 17px 8px;margin: 0 3px;background: #fafafa;position: relative;color: #ccc;font-size: 14px;border:1px solid #ddd;border-bottom:0;cursor: pointer;border-radius:2px 2px 0 0;}
+.comment .info-title li.select{border:solid 1px #aaa;border-bottom: solid 1px #fff;background:#fff;font-weight: bold;color: #000;top: 1px;}
+
+.comment .edit-box{margin-top: 10px;}
+.comment .edit-box form{padding: 15px;box-sizing: border-box;background: #eee;border-radius: 4px;}
+.comment .edit-box form input{width: 60%;height: 30px;border-radius: 4px;border:solid 1px #ccc;padding-left: 10px;box-sizing: border-box;}
+.comment .edit-box form input[type='file']{width: 100%;height: 225px;opacity:0;}
+.comment .edit-box form select{width: 50%;}
+.comment .edit-box form textarea{max-width:60%;border-radius: 4px;border:solid 1px #ccc;padding: 10px;box-sizing: border-box;}
+.comment .edit-box li>p{font-size: 15px;font-weight: bold;color: #555;}
+.comment .edit-box form li{position: relative;}
+.comment .edit-box form li~li{margin-top: 15px;}
+.comment .edit-box .none{position: absolute;top: 17px;left: 62%;display: none;}
+.comment .edit-box .none p{color: #555;font-size: 14px;}
+.comment .edit-box .none h5{margin: 6px 0;color: #212426;font-size: 13px;}
+.comment .edit-box .showMore{width: 60%;line-height: 30px;text-align: center;margin: 10px 0;border-radius: 4px;background: #f7f7f7;font-size: 12px;color: #333;cursor:pointer;}
+.comment .edit-box .show-ol{display: none;}
+.comment .edit-box .showMore p::after{display: block;float: right;position: relative;right: 20px;font-family: myFont;}
+.comment .edit-box .showMore p:hover{background: #fff;}
+.comment .edit-box .addFile{border:solid 1px;width: 300px;height: 225px;border:dashed 2px rgb(221, 221, 221);border-radius: 10px;margin: 20px 0;background: url('./images/video-large-add-2.png') no-repeat 50% 50%;}
+.comment .edit-box .addFile:hover{background-color: #eff;}
+.comment .edit-box .btn-box{margin: 20px 0;position: relative;height: 32px;}
+.comment .edit-box button{color: #fff;background: #0071ce;padding:6px 12px 7px;border:#0071ce;border-radius: 4px;position: absolute;right: 0;cursor:pointer;}
+.comment .edit-box .pagination{background: #eee;line-height: 35px;text-align: center;font-size: 14px;color: #555;border-radius: 4px;margin-bottom: 10px;}
+.comment .edit-box .disclaimer{color: #888;font-size: 14px;font-style:italic;}
+.comment .edit-box .disclaimer a{color: #668c9d;}
+
+
+.comment .raside > ul > li{background: #eee;border-radius: 4px;box-sizing: border-box;padding: 5px;}
+.comment .raside > ul > li~li{margin-top: 15px;}
+.comment .raside > ul > li:first-child{height: 225px;}
+.comment .raside > ul > li:first-child > div{border:dashed 2px rgb(221, 221, 221);height: 215px;box-sizing: border-box;background: url('./images/camera-large-add-2.png') no-repeat 50% 50%;}
+.comment .raside > ul > li:first-child > div:hover{background-color:#eff;}
+.comment .raside > ul > li:first-child input{height: 215px;width: 100%;opacity: 0;}
+.comment .raside > ul > li:nth-child(2) li{width: 56px;height: 42px;float: left;margin: 5px;}
+.comment .raside > ul > li:nth-child(2) li a{display: block;}
+.comment .raside > ul > li:nth-child(2) li.thumb{background: url('./images/NoImage_56x42.jpg');}
+.comment .raside > ul > li:nth-child(2) li:last-child a{line-height: 40px;box-sizing: border-box;text-align: center;background: #fece71;}
+.comment .raside > ul > li:nth-child(2) li:last-child a:before{content: "\f067";font-family: myFont;font-size: 23px;font-weight: 700px;color: #fff;}
+</style>
+</head>
+<body>
+	<header>头部</header>
+	<nav class="index">
+		<ul class="box_w_1000 ul-clear">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">导航</a></li>
+			<li>
+				<a href="#">配件及工具商城</a>
+				<ol>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+					<li><a href="#">配件</a></li>
+				</ol>
+			</li>
+			<li><a href="#">导航</a></li>
+			<li><a href="#">导航</a></li>
+		</ul>
+	</nav>
+	<div class="box_w_1000 ul-clear comment">
+		<aside class="laside">
+			<ul class="info-title ul-clear">
+				<li class="select">简介</li>
+				<li>详细信息</li>
+				<li>说明（指南）步骤</li>
+			</ul>
+			<div class="edit-box ul-clear">
+				<form action="">
+					<ol>
+						<li>
+							<p>这是什么类型的指南？</p>
+							<p>
+								<select name="type" id=""  class="focus" autocomplete="off">
+									<option value="替换">替换</option>
+									<option value="拆卸">拆卸</option>
+									<option value="拆解">拆解</option>
+									<option value="技术">技术</option>
+								</select>
+							</p>
+							<div class="none">
+								<p>我们根据其解释步骤类型将指南分类。</p>
+								<h5>替换</h5>
+								<p>大多数指南。如何替换特定组件。</p>
+								<h5>拆卸</h5>
+								<p>彻底拆除并移除每一个组件。对于维修水损坏设备。</p>
+								<h5>拆解</h5>
+								<p>一个有趣的、富有教育意义的拆卸，并不意在维修。</p>
+								<h5>技术</h5>
+								<p>提示，技巧或快捷方式。讲解如何使用工具或校准一个配件。</p>
+							</div>
+						</li>
+						<li>
+							<p>设备</p>
+							<p><input type="text" placeholder="例如：2001--2005年本田Civic" class="focus" name="equipment"></p>
+							<div class="none">
+								<p>你正在修理什么device？如果其它对该device的指南已存在，请务必使用一致的拼写和大小写。</p>
+							</div>
+						</li>
+						<li class="replace">
+							<p>你要替换的哪一部分？ </p>
+							<p><input type="text" class="focus" name="block"></p>
+							<div class="none">
+								<p>描述一下你正在修理的device的特别配件或组件。<em>例如：电池</em></p>
+							</div>
+						</li>
+						<li>
+							<p>标题 </p>
+							<p><input type="text" name="title"></p>
+						</li>
+						<li>
+							<p>搜索摘要</p>
+							<p>
+								<textarea name="abstract" id="" cols="42" rows="5" class="focus"></textarea>
+							</p>
+							<div class="none">
+								<p>这个简短的一两句总结将会出现在搜索结果中。</p>
+							</div>
+						</li>
+					</ol>
+					<div class="showMore"><p class="down">显示更多</p></div>
+					<div class="addFile">
+						<input type="file" name="video">
+					</div>
+					<ol class="show-ol">
+						<li>
+							<p>简介</p>
+							<p><textarea name="" id="" cols="42" rows="5" class="focus"></textarea></p>
+							<div class="none">
+								<p>这个简短的一两句总结将会出现在搜索结果中。</p>
+							</div>
+						</li>
+						<li>
+							<p>标志</p>
+							<p><input type="text" name=""></p>
+						</li>
+					</ol>
+				</form>
+				<div class="btn-box"><button>保存</button></div>
+				<div class="pagination">创建简介</div>
+				<p class="disclaimer">在开源<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" class="muted" target="_blank">创作共享</a>许可协议下，你的投稿已被<a href="/Info/Licensing" class="muted" target="_blank">许可</a>。</p>
+			</div>
+		</aside>
+		<aside class="raside">
+			<ul>
+				<li>
+					<div><input type="file" name="video"></div>
+				</li>
+				<li>
+					<h3>步骤</h3>
+					<ol class="ul-clear">
+						<li class="thumb"><a href="#"></a></li>
+						<li class="thumb"><a href="#"></a></li>
+						<li class="thumb"><a href="#"></a></li>
+						<li class="thumb"><a href="#"></a></li>
+						<li><a href="#" alt="添加步骤" title="添加步骤"></a></li>
+					</ol>
+				</li>
+				<li>
+					<h3>编辑权限</h3>
+				</li>
+				<li>
+					<h3>隐私</h3>
+				</li>
+				<li>
+					<h3>添加团队</h3>
+				</li>
+				<li>
+					<h3>添加用户</h3>
+				</li>
+				<li>
+					<h3>标签 </h3>
+				</li>
+			</ul>
+		</aside>
+	</div>
+</body>
+<script src="//cdn.bootcss.com/jquery/1.4.1/jquery.min.js"></script>
+<script>
+$('.focus').focus(function(){
+	$(this).parent().next('.none').show();
+});
+
+$('select').change(function(){
+	var str = $(this).find("option:selected").text();
+	if(str != '替换'){
+		$('.replace').hide().find('input').attr('name','');
+	}else{
+		$('.replace').show().find('input').attr('name','block');
+	}
+});
+
+$('.focus').blur(function(){
+	$(this).parent().next('.none').hide();
+});
+
+$('.showMore').toggle(
+	function(){
+		$(this).html('<p>显示更少</p>');
+		$(this).children().attr('class','up');
+		$('.show-ol').show();
+		$('.show-ol').find('textarea').attr('name','info');
+		$('.show-ol').find('input').attr('name','sign');
+	},
+	function(){
+		$(this).html('<p>显示更多</p>');
+		$(this).children().attr('class','down');
+		$('.show-ol').hide();
+		$('.show-ol').find('textarea').attr('name','');
+		$('.show-ol').find('input').attr('name','');
+	}
+);
+
+
+$('.btn-box button').click(function(){
+	if(!$("input[type='file']").data('file')){
+		var data = $('form').serialize();
+	}else{
+		var files = $("input[type='file']").data('file').split('/');
+		var file = files[6]+ '/' +files[7];	
+		var data = $('form').serialize() + '&video=' + file;	
+	}
+	var url = '';
+	$.post(url,data,function(e){
+		if(e){
+			alert('保存成功');
+		}else{
+			alert('保存失败');
+		}
+	});
+});
+
+
+$("input[type='file']").change(function(){
+	var xhr = new XMLHttpRequest();
+	var formData = new FormData();
+	console.log($(this)[0].files);
+	formData.append('video',$(this)[0].files[0]);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4 && xhr.status == 200){
+			var img = xhr.responseText;
+			if(img !== 0){
+				$("input[type='file']").data('file',img);
+				$('.addFile').css({'background-image':"url("+img+")",'background-size':"100% 100%"});
+			}else{
+				alert('上传失败');
+			}
+		}
+	}
+	xhr.open('POST','index/index/upload',1);
+	xhr.send(formData);
+});
+
+</script>
+</html>
